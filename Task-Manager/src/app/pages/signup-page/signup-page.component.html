@@ -1,0 +1,121 @@
+<div class="columns container">
+  <div   class="column svg-container">
+   
+    <mat-icon id="svg" class="svgs" svgIcon="ctask"></mat-icon>
+  </div>
+  <div class="column">
+    <div class="center-container">
+    <form action="" #myForm = "ngForm">
+      <div class="signup-box">
+        <h1 class="title has-text-primary">Sign Up</h1>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input
+              #emailInput
+              ngModel name="FirstName"
+              #fName = "ngModel"
+              required
+              pattern="^[a-zA-Z0-9]{2,}$"
+              [ngClass]="{'input has-background-light' : true ,'is-danger': !fName?.valid && fName?.touched,
+              'is-success': fName?.valid && fName?.touched}"
+              type="text"
+              placeholder="First Name"
+              
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            
+          </p>
+          <small *ngIf="fName?.errors?.required && fName?.touched " class="help is-danger">Field is required</small>
+          <small *ngIf="fName?.errors?.pattern && fName?.touched " class="help is-danger">Min 2 characters</small>
+          
+        </div>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input
+              #emailInput
+              ngModel name="lastName"
+              #lName = "ngModel"
+              required
+              pattern="^[a-zA-Z0-9]{2,}$"
+              [ngClass]="{'input has-background-light' : true ,'is-danger': !lName?.valid && lName?.touched,
+              'is-success': lName?.valid && lName?.touched}"
+              type="text"
+              placeholder="Last Name"
+              
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            
+          </p>
+          <small *ngIf="lName?.errors?.required && lName?.touched " class="help is-danger">Field is required</small>
+          <small *ngIf="lName?.errors?.pattern && lName?.touched " class="help is-danger">Min 2 characters</small>
+          
+        </div>
+        
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input
+              #emailInput
+              ngModel name="email"
+              #emailForm = "ngModel"
+              appCustomValidator
+              [ngClass]="{'input has-background-light' : true ,'is-danger': !emailForm?.valid && emailForm?.touched,
+              'is-success': emailForm?.valid && emailForm?.touched}"
+              type="email"
+              placeholder="Email"
+              
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            
+          </p>
+          <small *ngIf="emailForm?.errors?.validate_required && emailForm?.touched " class="help is-danger">{{emailForm?.errors?.validate_required}}</small>
+          <small *ngIf="emailForm?.errors?.validate_email && emailForm?.touched " class="help is-danger">{{emailForm?.errors?.validate_email}}</small>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+            <input
+              #passwordInput
+              ngModel name="password"
+              
+              #passForm = "ngModel"
+              required
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+              [ngClass]="{'input has-background-light' : true ,'is-danger': !passForm?.valid && passForm?.touched,
+              'is-success': passForm?.valid && passForm?.touched}"
+              type="password"
+              placeholder="Password"
+              
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+          <small *ngIf="passForm?.errors?.required && passForm?.touched " class="help is-danger">Field is required</small>
+          <small *ngIf="passForm?.errors?.pattern && passForm?.touched " class="help is-danger">Min 8 characters,1 uppercase letter and 1 number</small>
+        </div>
+        <div class="field" style="display: flex; justify-content: flex-end">
+          <p class="control">
+            <button 
+            [disabled] = "!myForm.form.valid"
+              class="button is-success has-text-white signup"
+              (click)="
+              onSignUpButtonClicked(emailInput.value, passwordInput.value)
+              "
+            >
+              Sign Up
+            </button>
+          </p>
+        </div>
+        <br />
+        <p>Already an User? <a routerLink="/login">&nbsp;Login!</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+

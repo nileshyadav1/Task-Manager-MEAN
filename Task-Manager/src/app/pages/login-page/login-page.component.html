@@ -1,0 +1,58 @@
+<div class="columns container">
+  <div class="column">
+    <div class="center-container">
+      <div class="login-box">
+        <h1 class="title has-text-primary">Login</h1>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input
+              #emailInput
+              class="input has-background-light"
+              type="email"
+              placeholder="Email"
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+            <input
+              #passwordInput
+              class="input has-background-light"
+              type="password"
+              placeholder="Password"
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field" style="display: flex; justify-content: flex-end">
+          <p class="control">
+            <button
+              class="button is-success has-text-white"
+              (click)="
+                onLoginButtonClicked(emailInput.value, passwordInput.value)
+              "
+            >
+              Login
+            </button>
+          </p>
+        </div>
+
+        <br />
+        <p class="has-text-grey">
+          New here? <a routerLink="/signup">&nbsp;Sign Up </a>now!
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="column  ">
+    <div class="svg-container">
+      <mat-icon id="svg" class="svgs" svgIcon="p-completed"></mat-icon>
+    </div>
+    
+  </div>
+</div>

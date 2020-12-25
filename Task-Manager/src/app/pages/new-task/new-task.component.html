@@ -1,0 +1,15 @@
+<div class="center-container">
+    <div class="modal-box has-background-light">
+        <h1>Create a new Task</h1>
+
+        <input #taskTitleInput class="input has-background-light is-medium" type="text " placeholder="Enter task name">
+        <br><br>
+        <div class="buttons is-right">
+            <button class="button is-medium" routerLink="/">Cancel</button>
+            <button class="button is-medium is-info" (click)="createTask(taskTitleInput.value)">Create</button>
+            
+        </div>
+        
+      
+    </div>
+</div>

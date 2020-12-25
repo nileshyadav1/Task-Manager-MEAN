@@ -1,0 +1,15 @@
+<div class="center-container">
+    <div class="modal-box has-background-light">
+        <h1>Edit list</h1>
+
+        <input #listTitleInput class="input has-background-light is-medium" type="text " placeholder="Enter list name">
+        <br><br>
+        <div class="buttons is-right">
+            <button class="button is-medium" routerLink="/">Cancel</button>
+            <button class="button is-medium is-info" (click)="updateList(listTitleInput.value)">Save</button>
+            
+        </div>
+        
+      
+    </div>
+</div>
